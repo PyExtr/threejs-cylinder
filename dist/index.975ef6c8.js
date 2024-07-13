@@ -608,27 +608,32 @@ controls.mouseButtons = {
     RIGHT: _three.MOUSE.PAN
 };
 // Create the transparent cylinder
-const outerGeometry = new _three.CylinderGeometry(1, 1, 10, 32);
+const outerGeometry = new _three.CylinderGeometry(1, 1, 15, 32);
 const outerMaterial = new _three.MeshPhongMaterial({
     color: 0xffffff,
     transparent: true,
     opacity: 0.5
 });
 const outerCylinder = new _three.Mesh(outerGeometry, outerMaterial);
+outerCylinder.position.y = 5;
 scene.add(outerCylinder);
 // Function to create text texture
 function createTextTexture(text) {
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
-    const size = 256;
+    const size = 128;
     canvas.width = size;
     canvas.height = size;
     context.font = "Bold 48px Arial";
     context.fillStyle = "transparent";
     context.fillRect(0, 0, size, size);
-    context.fillStyle = "black";
+    context.fillStyle = "white";
     context.textAlign = "center";
     context.textBaseline = "middle";
+    // add white border around text for better visibility
+    context.lineWidth = 4;
+    context.strokeStyle = "black";
+    context.strokeText(text, size / 2, size / 2);
     context.fillText(text, size / 2, size / 2);
     const texture = new _three.CanvasTexture(canvas);
     return texture;
@@ -665,19 +670,26 @@ for(let i = 0; i < numCylinders; i++){
     electrodeGroup.add(electrode);
     electrodes.push(electrode);
 }
+// Create the rounded end (capsule) at the bottom of the first cylinder
+const capsuleGeometry = new _three.CapsuleGeometry(0.3, 15, 64, 64);
+const capsuleMaterial = new _three.MeshPhongMaterial({
+    color: 0x404040
+});
+const capsule = new _three.Mesh(capsuleGeometry, capsuleMaterial);
+capsule.position.y = 5; // Adjust position to connect to the bottom of the first cylinder
+electrodeGroup.add(capsule);
 // Set initial position of the electrode group
 electrodeGroup.position.y = -4; // Adjusted starting position
 scene.add(electrodeGroup);
 // Create the transparent green ellipse
-const ellipseGeometry = new _three.CylinderGeometry(0.4, 0.4, 0.2, 32);
+const ellipseGeometry = new _three.CylinderGeometry(4.2, 4, 3, 128);
 const ellipseMaterial = new _three.MeshPhongMaterial({
     color: 0x00ff00,
     transparent: true,
     opacity: 0.5
 });
 const ellipse = new _three.Mesh(ellipseGeometry, ellipseMaterial);
-ellipse.rotation.x = Math.PI / 2;
-ellipse.position.y = 0;
+ellipse.position.y = -10;
 scene.add(ellipse);
 // Add lighting
 const ambientLight = new _three.AmbientLight(0x404040);
@@ -726,6 +738,7 @@ function onMouseClick(event) {
         object.material.color.setHex(newColor);
     }
 }
+// Add event listener to the window
 window.addEventListener("click", onMouseClick);
 // Add event listener to the rotate button
 document.getElementById("rotate-button").addEventListener("click", ()=>{
