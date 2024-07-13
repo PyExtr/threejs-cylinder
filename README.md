@@ -6,7 +6,7 @@ This project demonstrates a 3D cylinder animation using Three.js. The cylinder c
 
 ### Prerequisites
 
-- Node.js and npm (Download from [Node.js](https://nodejs.org/))
+- Node.js and npm
 
 ### Steps
 
@@ -25,11 +25,4 @@ This project demonstrates a 3D cylinder animation using Three.js. The cylinder c
    Using Parcel:
    ```sh
    npm start
-   ```
-
-   Or, using live-server:
-   ```sh
-   npm install -g live-server
-   cd src
-   live-server
    ```
