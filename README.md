@@ -22,7 +22,6 @@ This project demonstrates a 3D cylinder animation using Three.js. The cylinder c
    ```
 
 3. **Run the project**:
-   Using Parcel:
    ```sh
    npm start
    ```
