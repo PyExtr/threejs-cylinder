@@ -607,16 +607,6 @@ controls.mouseButtons = {
     MIDDLE: _three.MOUSE.DOLLY,
     RIGHT: _three.MOUSE.PAN
 };
-// Create the transparent cylinder
-const outerGeometry = new _three.CylinderGeometry(1, 1, 15, 32);
-const outerMaterial = new _three.MeshPhongMaterial({
-    color: 0xffffff,
-    transparent: true,
-    opacity: 0.5
-});
-const outerCylinder = new _three.Mesh(outerGeometry, outerMaterial);
-outerCylinder.position.y = 5;
-scene.add(outerCylinder);
 // Function to create text texture
 function createTextTexture(text) {
     const canvas = document.createElement("canvas");
@@ -673,7 +663,9 @@ for(let i = 0; i < numCylinders; i++){
 // Create the rounded end (capsule) at the bottom of the first cylinder
 const capsuleGeometry = new _three.CapsuleGeometry(0.3, 15, 64, 64);
 const capsuleMaterial = new _three.MeshPhongMaterial({
-    color: 0x404040
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.4
 });
 const capsule = new _three.Mesh(capsuleGeometry, capsuleMaterial);
 capsule.position.y = 5; // Adjust position to connect to the bottom of the first cylinder
