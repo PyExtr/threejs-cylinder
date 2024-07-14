@@ -4,39 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three.js Cylinder</title>
-    <style>body {
-  margin: 0;
-}
-
-canvas {
-  display: block;
-}
-
-.controls-info {
-  background-color: #fffc;
-  border-radius: 5px;
-  padding: 10px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-
-.rotate-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-</style>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+        .controls-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+        .rotate-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <div class="controls-info">
@@ -49,6 +43,6 @@ canvas {
         </ul>
     </div>
     <button class="rotate-button" id="rotate-button">Start Rotation</button>
-    <script src="/index.975ef6c8.js" defer=""></script>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
