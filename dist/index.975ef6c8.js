@@ -592,6 +592,8 @@ const scene = new _three.Scene();
 const camera = new _three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 18;
 camera.position.y = -8;
+// Change background color of the scene to white
+scene.background = new _three.Color("#575757");
 // Create the renderer
 const renderer = new _three.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -642,7 +644,7 @@ const texts = [
 ];
 for(let i = 0; i < numCylinders; i++){
     const materialElectrode = new _three.MeshPhongMaterial({
-        color: 0x0000ff
+        color: 0x404040
     });
     const electrode = new _three.Mesh(electrodeGeometry, materialElectrode);
     electrode.position.y = i * (2 + spaceBetween);
@@ -665,7 +667,7 @@ const capsuleGeometry = new _three.CapsuleGeometry(0.3, 15, 64, 64);
 const capsuleMaterial = new _three.MeshPhongMaterial({
     color: 0xffffff,
     transparent: true,
-    opacity: 0.4
+    opacity: 0.8
 });
 const capsule = new _three.Mesh(capsuleGeometry, capsuleMaterial);
 capsule.position.y = 5; // Adjust position to connect to the bottom of the first cylinder

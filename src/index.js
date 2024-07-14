@@ -9,6 +9,9 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 camera.position.z = 18;
 camera.position.y = -8;
 
+// Change background color of the scene to white
+scene.background = new THREE.Color("#575757");
+
 // Create the renderer
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -61,7 +64,7 @@ const texts = ["1", "2A", "3A", "4"];
 
 for (let i = 0; i < numCylinders; i++) {
     const materialElectrode = new THREE.MeshPhongMaterial({ 
-        color: 0x0000ff
+        color: 0x404040
     });
     const electrode = new THREE.Mesh(electrodeGeometry, materialElectrode);
     electrode.position.y = i * (2 + spaceBetween);
@@ -80,7 +83,7 @@ for (let i = 0; i < numCylinders; i++) {
 
 // Create the rounded end (capsule) at the bottom of the first cylinder
 const capsuleGeometry = new THREE.CapsuleGeometry(0.3, 15, 64, 64);
-const capsuleMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, transparent: true, opacity: 0.4 });
+const capsuleMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, transparent: true, opacity: 0.8 });
 const capsule = new THREE.Mesh(capsuleGeometry, capsuleMaterial);
 capsule.position.y = 5; // Adjust position to connect to the bottom of the first cylinder
 electrodeGroup.add(capsule);
