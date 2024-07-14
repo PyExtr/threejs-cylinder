@@ -12,7 +12,7 @@ This project demonstrates a 3D cylinder animation using Three.js. The cylinder c
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/yourusername/threejs-cylinder.git
+   git clone https://github.com/PyExtr/threejs-cylinder.git
    cd threejs-cylinder
    ```
 
@@ -22,7 +22,6 @@ This project demonstrates a 3D cylinder animation using Three.js. The cylinder c
    ```
 
 3. **Run the project**:
-   Using Parcel:
    ```sh
    npm start
    ```
